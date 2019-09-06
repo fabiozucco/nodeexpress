@@ -9,21 +9,29 @@ let listProducts = [
   {
     id: 1,
     name: 'Product 1',
-    price: 10
+    price: 10,
+    description: 'Descrição 1'
   },
   {
     id: 2,
     name: 'Product 2',
-    price: 100
+    price: 100,
+    description: 'Descricao 2'
+  },
+  {
+    id: 3,
+    name: 'Product 3',
+    price: 300,
+    description: 'Descricao 3'
   }
 ];
+
 
 
 nunjucks.configure('views', {
     autoescape: true,
     express: app
 });
-
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -77,6 +85,10 @@ app.get('/product/:id', (req, res) => {
   })
   res.render('product.html', {product: product});
 });
+
+app.get('/fabio', (req, res) => {
+    res.render('fabio.html');
+})
 
 app.listen(3000, () => {
   console.log('Escutando na porta 3000');

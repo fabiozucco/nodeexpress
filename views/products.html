@@ -2,21 +2,23 @@
 
 {% block content %}
   <h1>Produtos</h1>
-  <ul>
+  <ul class="item">
     {% for item in products %}
     <li>
       <p>{{ item.name }}</p>
       <p>R$ {{ item.price }}</p>
+      <p>{{ item.description }}</p>
       <a href="/product/{{ item .id }}" class="btn btn-primary">Ver mais</a>
     </li>
     {% endfor %}
   </ul>
 {% endblock %}
-
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+{% endblock %}
 {% block title %}
   Produtos
 {% endblock %}
-
 {% block script %}
   <script src="/js/products.js" charset="utf-8"></script>
 {% endblock %}
